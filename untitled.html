@@ -2,18 +2,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday!</title>
+  <title>Birthday Game!</title>
   <style>
-    body { background: #ffe4e1; text-align: center; font-family: Arial; }
-    h1 { color: #ff69b4; }
-    p { font-size: 1.5em; }
-    .cake { font-size: 3em; }
+    body {
+      background: linear-gradient(135deg, #fcb69f, #a1c4fd);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
+    .box {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px #a1c4fd;
+      text-align: center;
+    }
+    h2 { color: #ff69b4; }
+    button {
+      margin: 15px 10px 0 10px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background: #ff69b4;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #ff1493; }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday! 🎂</h1>
-  <div class="cake">🍰</div>
-  <p>Wishing you a fantastic year ahead!</p>
+  <div class="box">
+    <h2 id="message">Game me aa jayiye! 🎮</h2>
+    <button onclick="yesClicked()">Yes</button><button onclick="noClicked()">No</button>
+  </div>
+  <script>
+    const messages = [
+      "Arey, please aa jao na! 😅",
+      "Yaar, ek baar try to karo! 🙏",
+      "Itna bhi mat socho, bas aa jao! 😜",
+      "Last chance, warna cake miss ho jayega! 🎂"
+    ];
+    let noCount = 0;
+    function yesClicked() {
+      document.querySelector('.box').innerHTML = "<h2>Happy Birthday! 🥳<br>Game jeet gaye! 🎉</h2>";
+    }
+    function noClicked() {
+      if(noCount < messages.length){
+        document.getElementById('message').innerText = messages[noCount];
+        noCount++;
+      } else {
+        document.querySelector('.box').innerHTML = "<h2>Chalo, mazak ho gaya!<br>Ab aa hi jao! 😁</h2>";
+      }
+    }
+  </script>
 </body>
 </html>
 ```
